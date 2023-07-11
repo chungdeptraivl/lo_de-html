@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dự đoán kết quả lô đề ngày hôm nay</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap"
+        rel="stylesheet">
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Open Sans', sans-serif;
+    }
+
+    html {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .container {
+        margin: 50px auto;
+        padding: 40px;
+        background-color: #ddd;
+        border-radius: 10px;
+    }
+
+    h1 {
+        font-size: 40px;
+        color: rgb(234, 10, 10);
+        margin-bottom: 40px;
+    }
+
+    .wrapper {
+        margin: auto;
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        background-color: #ccc;
+        border-radius: 16px;
+    }
+
+    #display {
+        margin: 20px;
+        padding: 10px;
+        border-radius: 8px;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .btn {
+        width: 60%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .btn-result {
+        padding: 8px 20px;
+        border: none;
+        border-radius: 8px;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .btn-result:hover {
+        opacity: 0.7;
+    }
+
+    .btn-lo {
+        background-color: rgb(253, 69, 8);
+    }
+
+    .btn-de {
+        background-color: rgb(50, 171, 10);
+    }
+</style>
+
+<body>
+
+    <div class="container">
+        <h1>Dự đoán kết quả lô - đề <br> sớm nhất chính xác nhất</h1>
+        <div class="wrapper">
+            <input type="text" id="display">
+            <div class="btn">
+                <button class="btn-result btn-lo" onclick="result()">Lô</button>
+                <button class="btn-result btn-de" onclick="result2()">Đề</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<script>
+    function result() {
+        let randomNumbers = [];
+        for (let i = 0; i < 5; i++) {
+            let randomNumber = Math.floor(Math.random() * 100) + 1;
+            randomNumbers.push(randomNumber.toString().padStart(2, '0'));
+        }
+        document.getElementById("display").value = randomNumbers.join(' ');
+    }
+
+    function result2() {
+        let randomNumber = Math.floor(Math.random() * 100);
+
+        document.getElementById("display").value = randomNumber.toString().padStart(2, '0')
+    }
+</script>
+
+</html>
